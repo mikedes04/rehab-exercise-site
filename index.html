@@ -1,0 +1,145 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>UCLA Ronald Reagan Inpatient Rehabilitation</title>
+  <style>
+    body { font-family: Arial, sans-serif; margin: 0; padding: 0; background: #f7f7f7; }
+    header { background: #003b5c; color: white; padding: 1em; text-align: center; }
+    main { padding: 1em; }
+    h2 { border-bottom: 2px solid #ccc; padding-bottom: 0.3em; }
+    .category { margin-top: 2em; }
+    .exercise-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(200px, 1fr)); gap: 1em; }
+    .exercise-card { background: white; padding: 1em; border-radius: 8px; box-shadow: 0 2px 5px rgba(0,0,0,0.1); }
+    .exercise-card img { width: 100%; height: auto; }
+    button { margin-top: 0.5em; padding: 0.5em; background: #0072ce; color: white; border: none; border-radius: 5px; cursor: pointer; }
+    #program-form { margin-top: 2em; background: white; padding: 1em; border-radius: 8px; }
+    textarea, input[type="text"] { width: 100%; margin-top: 0.5em; margin-bottom: 1em; padding: 0.5em; }
+    .selected-exercises { margin-top: 1em; }
+  </style>
+</head>
+<body>
+  <header>
+    <h1>UCLA Ronald Reagan Inpatient Rehabilitation</h1>
+    <p>Select Exercises for Patient Handouts</p>
+  </header>
+  <main>
+    <div class="category">
+      <h2>Shoulder Exercises</h2>
+      <div class="exercise-grid">
+        <div class="exercise-card">
+          <p><strong>Pendulum Exercise</strong></p>
+          <img src="https://via.placeholder.com/150" alt="Pendulum Start">
+          <img src="https://via.placeholder.com/150" alt="Pendulum End">
+          <button onclick="addExercise('Pendulum Exercise')">Add</button>
+        </div>
+      </div>
+    </div>
+    <div class="category">
+      <h2>Knee Exercises</h2>
+      <div class="exercise-grid">
+        <div class="exercise-card">
+          <p><strong>Quad Sets</strong></p>
+          <img src="https://via.placeholder.com/150" alt="Quad Set Start">
+          <img src="https://via.placeholder.com/150" alt="Quad Set End">
+          <button onclick="addExercise('Quad Sets')">Add</button>
+        </div>
+      </div>
+    </div>
+    <div class="category">
+      <h2>Core Exercises</h2>
+      <div class="exercise-grid">
+        <div class="exercise-card">
+          <p><strong>Pelvic Tilts</strong></p>
+          <img src="https://via.placeholder.com/150" alt="Pelvic Tilt Start">
+          <img src="https://via.placeholder.com/150" alt="Pelvic Tilt End">
+          <button onclick="addExercise('Pelvic Tilts')">Add</button>
+        </div>
+        <div class="exercise-card">
+          <p><strong>Dead Bug</strong></p>
+          <img src="https://via.placeholder.com/150" alt="Dead Bug Start">
+          <img src="https://via.placeholder.com/150" alt="Dead Bug End">
+          <button onclick="addExercise('Dead Bug')">Add</button>
+        </div>
+      </div>
+    </div>
+    <div class="category">
+      <h2>Back Exercises</h2>
+      <div class="exercise-grid">
+        <div class="exercise-card">
+          <p><strong>Bird Dog</strong></p>
+          <img src="https://via.placeholder.com/150" alt="Bird Dog Start">
+          <img src="https://via.placeholder.com/150" alt="Bird Dog End">
+          <button onclick="addExercise('Bird Dog')">Add</button>
+        </div>
+        <div class="exercise-card">
+          <p><strong>Prone Press-Up</strong></p>
+          <img src="https://via.placeholder.com/150" alt="Press-Up Start">
+          <img src="https://via.placeholder.com/150" alt="Press-Up End">
+          <button onclick="addExercise('Prone Press-Up')">Add</button>
+        </div>
+      </div>
+    </div>
+    <div class="category">
+      <h2>Leg Exercises</h2>
+      <div class="exercise-grid">
+        <div class="exercise-card">
+          <p><strong>Heel Slides</strong></p>
+          <img src="https://via.placeholder.com/150" alt="Heel Slide Start">
+          <img src="https://via.placeholder.com/150" alt="Heel Slide End">
+          <button onclick="addExercise('Heel Slides')">Add</button>
+        </div>
+        <div class="exercise-card">
+          <p><strong>Straight Leg Raise</strong></p>
+          <img src="https://via.placeholder.com/150" alt="Straight Leg Raise Start">
+          <img src="https://via.placeholder.com/150" alt="Straight Leg Raise End">
+          <button onclick="addExercise('Straight Leg Raise')">Add</button>
+        </div>
+      </div>
+    </div>
+    <div class="category">
+      <h2>Resistance Band Exercises</h2>
+      <div class="exercise-grid">
+        <div class="exercise-card">
+          <p><strong>Band Rows</strong></p>
+          <img src="https://via.placeholder.com/150" alt="Band Row Start">
+          <img src="https://via.placeholder.com/150" alt="Band Row End">
+          <button onclick="addExercise('Band Rows')">Add</button>
+        </div>
+        <div class="exercise-card">
+          <p><strong>Band External Rotation</strong></p>
+          <img src="https://via.placeholder.com/150" alt="External Rotation Start">
+          <img src="https://via.placeholder.com/150" alt="External Rotation End">
+          <button onclick="addExercise('Band External Rotation')">Add</button>
+        </div>
+        <div class="exercise-card">
+          <p><strong>Band Clamshells</strong></p>
+          <img src="https://via.placeholder.com/150" alt="Clamshell Start">
+          <img src="https://via.placeholder.com/150" alt="Clamshell End">
+          <button onclick="addExercise('Band Clamshells')">Add</button>
+        </div>
+      </div>
+    </div>
+    <div id="program-form">
+      <h2>Patient Exercise Program</h2>
+      <label>Patient Name:</label>
+      <input type="text" placeholder="Enter patient's name">
+      <label>Notes for Patient:</label>
+      <textarea rows="3" placeholder="Therapist notes..."></textarea>
+      <div class="selected-exercises">
+        <h3>Selected Exercises</h3>
+        <ul id="selected-list"></ul>
+      </div>
+    </div>
+  </main>
+  <script>
+    function addExercise(name) {
+      const list = document.getElementById('selected-list');
+      const li = document.createElement('li');
+      li.textContent = name + ' — Reps: _____ Sets: _____';
+      list.appendChild(li);
+    }
+  </script>
+</body>
+</html>
